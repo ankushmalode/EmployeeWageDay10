@@ -8,20 +8,26 @@ public class EmployeeWage {
 
 
     public static void wageCalculation() {
-        int totalHr = 0, fullDayHr = 8, partTimeWage = 4, wagePerHr = 20, totalWorkingDay = 0, workingDayPerMonth = 20;
-        while (totalWorkingDay < workingDayPerMonth) {
+        int totalHr = 0, fullDayHr = 8, partTimeWage = 4, wagePerHr = 20, totalWorkingDay = 0, workingDayPerMonth = 20, maxPerHrMonth = 100;
+        while (totalWorkingDay < workingDayPerMonth && totalHr < maxPerHrMonth) {
             Random num = new Random();
             int attendance = num.nextInt(3);
             switch (attendance) {
                 case isFullTime:
-                    totalHr = fullDayHr;
+                    totalHr += fullDayHr;
+//                    if (totalHr > 100)
+//                        totalHr -= fullDayHr;
                     break;
                 case isPartTime:
-                    totalHr = partTimeWage;
+                    totalHr += partTimeWage;
+//                    if (totalHr > 100)
+//                        totalHr -= partTimeWage;
                     break;
                 default:
                     totalHr = 0;
-                    totalWorkingDay--;
+                    totalWorkingDay--; /*if employee is absent the then
+                     * day also not to be count.
+                     */
                     break;
             }
             totalWorkingDay++;
