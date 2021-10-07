@@ -8,13 +8,17 @@ public class EmployeeWage {
 
 
     public static void wageCalculation() {
-        int totalHr = 0, fullDayHr = 8, wagePerHr = 20;
+        int totalHr = 0, fullDayHr = 8, partTimeWage = 4, wagePerHr = 20;
         Random num = new Random();
-        int attendance = num.nextInt(2);
+        int attendance = num.nextInt(3);
         switch (attendance) {
             case isFullTime:
                 System.out.println("Employee is present");
                 totalHr = fullDayHr;
+                break;
+            case isPartTime:
+                System.out.println("Employee is present only for half day");
+                totalHr = partTimeWage;
                 break;
             default:
                 System.out.println("Employee is Absent");
