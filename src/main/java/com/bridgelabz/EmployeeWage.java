@@ -5,10 +5,10 @@ import java.util.*;
 public class EmployeeWage {
     public static final int isFullTime = 1;
     public static final int isPartTime = 2;
-
+    public static int totalWorkingDay;
 
     public static void wageCalculation(String company, int empRatePerHr, int workingDayPerMonth, int maxPerHrMonth) {
-        int totalHr = 0, fullDayHr = 8, partTimeWage = 4, totalWorkingDay = 0;
+        int totalHr = 0, fullDayHr = 8, partTimeWage = 4;
         while (totalWorkingDay < workingDayPerMonth && totalHr < maxPerHrMonth) {
             Random num = new Random();
             int attendance = num.nextInt(3);
