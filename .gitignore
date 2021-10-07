@@ -1,0 +1,4 @@
+git .ignore file
+.idea/
+EmployeeWage.iml
+pom.xml
