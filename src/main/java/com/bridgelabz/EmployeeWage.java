@@ -7,21 +7,17 @@ public class EmployeeWage {
     public static final int isPartTime = 2;
 
 
-    public static void wageCalculation() {
-        int totalHr = 0, fullDayHr = 8, partTimeWage = 4, wagePerHr = 20, totalWorkingDay = 0, workingDayPerMonth = 20, maxPerHrMonth = 100;
+    public static void wageCalculation(String company, int empRatePerHr, int workingDayPerMonth, int maxPerHrMonth) {
+        int totalHr = 0, fullDayHr = 8, partTimeWage = 4, totalWorkingDay = 0;
         while (totalWorkingDay < workingDayPerMonth && totalHr < maxPerHrMonth) {
             Random num = new Random();
             int attendance = num.nextInt(3);
             switch (attendance) {
                 case isFullTime:
                     totalHr += fullDayHr;
-//                    if (totalHr > 100)
-//                        totalHr -= fullDayHr;
                     break;
                 case isPartTime:
                     totalHr += partTimeWage;
-//                    if (totalHr > 100)
-//                        totalHr -= partTimeWage;
                     break;
                 default:
                     totalHr = 0;
@@ -33,6 +29,6 @@ public class EmployeeWage {
             totalWorkingDay++;
         }
         System.out.println("Total working days per month is " + totalWorkingDay);
-        System.out.println("Full day employee wage is " + totalHr * wagePerHr);
+        System.out.println("In " + company + " per month employee wage is " + totalHr * empRatePerHr+"\n");
     }
 }
