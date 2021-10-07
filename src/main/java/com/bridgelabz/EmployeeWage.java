@@ -8,24 +8,25 @@ public class EmployeeWage {
 
 
     public static void wageCalculation() {
-        int totalHr = 0, fullDayHr = 8, partTimeWage = 4, wagePerHr = 20;
-        Random num = new Random();
-        int attendance = num.nextInt(3);
-        switch (attendance) {
-            case isFullTime:
-                System.out.println("Employee is present");
-                totalHr = fullDayHr;
-                break;
-            case isPartTime:
-                System.out.println("Employee is present only for half day");
-                totalHr = partTimeWage;
-                break;
-            default:
-                System.out.println("Employee is Absent");
-                totalHr = 0;
-                break;
+        int totalHr = 0, fullDayHr = 8, partTimeWage = 4, wagePerHr = 20, totalWorkingDay = 0, workingDayPerMonth = 20;
+        while (totalWorkingDay < workingDayPerMonth) {
+            Random num = new Random();
+            int attendance = num.nextInt(3);
+            switch (attendance) {
+                case isFullTime:
+                    totalHr = fullDayHr;
+                    break;
+                case isPartTime:
+                    totalHr = partTimeWage;
+                    break;
+                default:
+                    totalHr = 0;
+                    totalWorkingDay--;
+                    break;
+            }
+            totalWorkingDay++;
         }
-
+        System.out.println("Total working days per month is " + totalWorkingDay);
         System.out.println("Full day employee wage is " + totalHr * wagePerHr);
     }
 }
